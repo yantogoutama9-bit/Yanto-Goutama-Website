@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YANTO GOUTAMA | HR & Legal Consultant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #0a0a0f;
+                color: #e2e8f0;
+            }
+            h1, h2, h3, h4 {
+                font-family: 'Playfair Display', serif;
+            }
+        }
+        @layer components {
+            .gradient-text {
+                background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .hover-lift {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .hover-lift:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 40px rgba(245, 158, 11, 0.1);
+            }
+            .section-fade {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.8s ease, transform 0.8s ease;
+            }
+            .section-fade.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .nav-link {
+                position: relative;
+            }
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #f59e0b;
+                transition: width 0.3s ease;
+            }
+            .nav-link:hover::after,
+            .nav-link.active::after {
+                width: 100%;
+            }
+            .btn-primary {
+                background: linear-gradient(135deg, #f59e0b, #d97706);
+                transition: all 0.3s ease;
+            }
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+            }
+            .btn-outline {
+                border: 1px solid rgba(245, 158, 11, 0.5);
+                transition: all 0.3s ease;
+            }
+            .btn-outline:hover {
+                background: rgba(245, 158, 11, 0.1);
+                border-color: #f59e0b;
+            }
+            .grid-pattern {
+                background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+                background-size: 40px 40px;
+            }
+            .glow-amber {
+                box-shadow: 0 0 60px rgba(245, 158, 11, 0.15);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold tracking-tight">
+                        <span class="text-amber-500">ISLA</span><span class="text-white">-GRC</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link active text-sm font-medium text-white hover:text-amber-400 transition-colors">Home</a>
+                        <a href="#about" class="nav-link text-sm font-medium text-gray-300 hover:text-amber-400 transition-colors">About</a>
+                        <a href="#services" class="nav-link text-sm font-medium text-gray-300 hover:text-amber-400 transition-colors">Services</a>
+                        <a href="#framework" class="nav-link text-sm font-medium text-gray-300 hover:text-amber-400 transition-colors">Framework</a>
+                        <a href="#insights" class="nav-link text-sm font-medium text-gray-300 hover:text-amber-400 transition-colors">Insights</a>
+                        <a href="#contact" class="nav-link text-sm font-medium text-gray-300 hover:text-amber-400 transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#contact" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold text-white">
+                        Schedule Consultation
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 backdrop-blur-lg border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-white hover:text-amber-400">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-amber-400">About</a>
+                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-amber-400">Services</a>
+                <a href="#framework" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-amber-400">Framework</a>
+                <a href="#insights" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-amber-400">Insights</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-amber-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden grid-pattern">
+        <div class="absolute inset-0 bg-gradient-to-b from-amber-500/5 via-transparent to-transparent"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+            <div class="section-fade visible">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium mb-8">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 mr-2 animate-pulse"></span>
+                    HR & Legal Consultant
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6">
+                    Your Company May Look <span class="text-white">Stable.</span><br>
+                    <span class="gradient-text">But Hidden Risks Could Already Be Growing Inside.</span>
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-gray-400 leading-relaxed">
+                    Helping businesses strengthen HR, Legal, Governance, Risk, and Compliance systems through a practical ISLA-GRC approach designed for real operational challenges.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-base font-semibold text-white inline-flex items-center justify-center gap-2">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        Schedule a Consultation
+                    </a>
+                    <a href="#services" class="btn-outline px-8 py-4 rounded-full text-base font-semibold text-amber-400 inline-flex items-center justify-center gap-2">
+                        <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+                        Request Initial Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#reality" class="text-gray-500 hover:text-amber-400 transition-colors">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Reality Section -->
+    <section id="reality" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-fade">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Most Business Problems <span class="gradient-text">Do Not Start as Crises.</span>
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        Many companies continue operating normally while critical HR, legal, and governance gaps quietly accumulate in the background.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+                            <i data-lucide="file-warning" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Inconsistent Employment Agreements</h3>
+                        <p class="text-gray-400 text-sm">PKWT / PKWTT agreements that lack standardization and legal clarity.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+                            <i data-lucide="file-x" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">SOPs as Mere Documentation</h3>
+                        <p class="text-gray-400 text-sm">Standard procedures exist only on paper without real operational implementation.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+                            <i data-lucide="users" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Weak HR Structures</h3>
+                        <p class="text-gray-400 text-sm">HR systems unable to support sustainable business growth.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+                            <i data-lucide="gavel" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Reactive Legal Response</h3>
+                        <p class="text-gray-400 text-sm">Legal action only begins after disputes have already occurred.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+                            <i data-lucide="map" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">No Clear Risk Mapping</h3>
+                        <p class="text-gray-400 text-sm">Lack of cross-departmental risk identification and assessment.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+                            <i data-lucide="folder-open" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Poor Documentation</h3>
+                        <p class="text-gray-400 text-sm">Inadequate records for disciplinary or termination processes.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+                            <i data-lucide="user-x" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Individual-Dependent Processes</h3>
+                        <p class="text-gray-400 text-sm">Internal operations overly reliant on specific individuals rather than systems.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 hover-lift">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
+                            <i data-lucide="shield-alert" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Compliance Without Implementation</h3>
+                        <p class="text-gray-400 text-sm">Practices that look compliant on surface but lack operational depth.</p>
+                    </div>
+                    
+                    <div class="glass-card rounded-2xl p-6 hover-lift bg-amber-500/5 border-amber-500/20">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center mb-4">
+                            <i data-lucide="alert-triangle" class="w-6 h-6 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-amber-400 mb-2">The Real Danger</h3>
+                        <p class="text-gray-300 text-sm">Growth, conflict, audits, or legal disputes expose weaknesses that were ignored for years.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="py-24 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-fade">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Integrated <span class="gradient-text">HR, Legal & Governance</span> Advisory
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        We help businesses build stronger operational foundations through integrated HR systems, legal awareness, governance structures, and risk-based thinking.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="building-2" class="w-7 h-7 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">HR System Development</h3>
+                        <p class="text-gray-400 leading-relaxed">Build robust HR structures that support operational stability and sustainable growth.</p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="scale" class="w-7 h-7 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Legal & Compliance Advisory</h3>
+                        <p class="text-gray-400 leading-relaxed">Navigate complex legal landscapes with proactive compliance strategies.</p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield-check" class="w-7 h-7 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Governance & Risk Assessment</h3>
+                        <p class="text-gray-400 leading-relaxed">Implement governance structures that identify and mitigate operational risks.</p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="clipboard-list" class="w-7 h-7 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">SOP & Internal Policy Structuring</h3>
+                        <p class="text-gray-400 leading-relaxed">Create practical, implementable standard operating procedures.</p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="handshake" class="w-7 h-7 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Employment & Industrial Relations</h3>
+                        <p class="text-gray-400 leading-relaxed">Manage workforce relationships with legal precision and operational empathy.</p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="graduation-cap" class="w-7 h-7 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-3">Corporate Training & Awareness</h3>
+                        <p class="text-gray-400 leading-relaxed">Empower teams with knowledge through targeted training programs.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-lg text-gray-400 italic">
+                        "The objective is not simply compliance. The objective is building <span class="text-amber-400 font-semibold">sustainable operational stability.</span>"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why ISLA-GRC Section -->
+    <section id="why-isla" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-amber-500/5 via-transparent to-amber-500/5"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="section-fade">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Why <span class="gradient-text">ISLA-GRC?</span>
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        ISLA-GRC is a practical framework designed to help businesses identify operational weaknesses before they become organizational problems.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-amber-500 hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl font-bold text-amber-500">I</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Internal System Alignment</h3>
+                                <p class="text-gray-400">Ensuring internal processes, structures, and workflows support operational consistency across all departments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-amber-500 hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl font-bold text-amber-500">S</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl textfont-semibold -white mb-2">Systematic Legal Awareness</h3>
+                                <p class="text-gray-400">Strengthening awareness of legal responsibilities before disputes or violations occur.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-amber-500 hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl font-bold text-amber-500">L</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Legal Framework Integration</h3>
+                                <p class="text-gray-400">Embedding legal compliance into daily operations rather than treating it as an afterthought.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 border-l-4 border-amber-500 hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl font-bold text-amber-500">A</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-2">Accountability Structure</h3>
+                                <p class="text-gray-400">Improving decision-making clarity and organizational discipline through defined accountability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center glass-card rounded-2xl p-8 max-w-3xl mx-auto">
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        <span class="text-amber-400 font-semibold">Strong businesses are not built only by revenue.</span><br>
+                        They are built by systems that continue working under pressure.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-b from-gray-900/50 to-transparent">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center section-fade">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                Your Business Risks Will Not <span class="gradient-text">Always Stay Invisible.</span>
+            </h2>
+            <p class="text-lg text-gray-400 mb-10 leading-relaxed">
+                If your company is growing, handling larger teams, or facing increasingly complex operations, this is the right time to evaluate whether your internal systems are truly prepared.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-base font-semibold text-white inline-flex items-center justify-center gap-2">
+                    <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                    Book Consultation
+                </a>
+                <a href="#contact" class="btn-outline px-8 py-4 rounded-full text-base font-semibold text-amber-400 inline-flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    Start Initial Discussion
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-fade">
+                <div class="text-center mb-16">
+                    <p class="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-4">About</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        A Practical Perspective on <span class="gradient-text">Business Risk</span>
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        Helping Businesses Build Stronger Operational Foundations Through HR, Legal, and Governance Integration.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="glass-card rounded-2xl p-8 glow-amber">
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            Many organizations focus heavily on growth, targets, and operational execution. However, internal risks often develop quietly through weak governance, inconsistent HR practices, undocumented processes, and reactive legal handling.
+                        </p>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            My work focuses on helping businesses recognize and strengthen those vulnerable areas before they evolve into operational or legal disruption.
+                        </p>
+                        <div class="mt-6 flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+                                <i data-lucide="user" class="w-6 h-6 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-semibold">Yanto Goutama</p>
+                                <p class="text-amber-400 text-sm">CHCM, CPLC - HR & Legal Consultant</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="glass-card rounded-2xl p-6 hover-lift">
+                            <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+                                <i data-lucide="target" class="w-6 h-6 text-amber-500"></i>
+                                Core Areas of Focus
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-gray-400">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 flex-shrink-0"></i>
+                                    HR System & Organizational Structure
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-400">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 flex-shrink-0"></i>
+                                    Employment & Industrial Relations
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-400">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 flex-shrink-0"></i>
+                                    Governance & Operational Alignment
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-400">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 flex-shrink-0"></i>
+                                    Risk Awareness & Compliance Culture
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-400">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 flex-shrink-0"></i>
+                                    Internal Policies & SOP Development
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-400">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-500 flex-shrink-0"></i>
+                                    Business Process Accountability
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 text-center max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-semibold text-white mb-4">How We Approach Problems</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed mb-6">
+                        Business problems are rarely isolated. Operational inefficiency, employee disputes, compliance failures, and governance weaknesses are often connected through systems that were never properly integrated.
+                    </p>
+                    <p class="text-lg text-amber-400 font-semibold">
+                        The goal is not to create excessive bureaucracy. The goal is creating systems that remain functional, accountable, and sustainable as the business grows.
+                    </p>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-xl text-gray-300 italic">
+                        "Good systems do not eliminate all risks. But they significantly reduce the likelihood of <span class="text-amber-400">preventable operational and legal problems.</span>"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-fade">
+                <div class="text-center mb-16">
+                    <p class="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-4">Services</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Practical Advisory for <span class="gradient-text">Operational Strength</span>
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        Practical advisory services designed to strengthen operational structure, governance, and business sustainability.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Service 1: HR Consulting -->
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="users" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">HR Consulting</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Helping businesses improve HR structures, policies, and workforce management practices that support operational stability and long-term growth.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                HR Structure Development
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                SOP & Internal Policy Design
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Employment Agreement Review
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Performance & Accountability Systems
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Organizational Alignment
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Workforce Risk Identification
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Legal & Compliance -->
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="scale" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Legal & Compliance Advisory</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Supporting businesses in identifying legal vulnerabilities and improving compliance awareness across operational activities.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Employment Compliance Review
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Industrial Relations Support
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Internal Documentation Review
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Legal Risk Identification
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Governance Support
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Compliance Awareness
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: GRC Advisory -->
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="shield" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">GRC Advisory</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Helping organizations improve governance structures and operational accountability through practical risk-based approaches.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Governance Assessment
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Risk Mapping
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Internal Control Awareness
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Accountability Structure
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Cross-Department Alignment
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Operational Risk Perspective
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Corporate Training -->
+                    <div class="glass-card rounded-2xl p-8 hover-lift group">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <i data-lucide="presentation" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-white">Corporate Training & Awareness</h3>
+                        </div>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            Interactive sessions designed to strengthen internal awareness regarding HR, legal responsibilities, governance, and workplace accountability.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                HR Compliance Awareness
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Leadership & Accountability
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Workplace Governance
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Risk Culture Development
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                SOP Implementation Awareness
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-400">
+                                <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                                Industrial Relations Perspective
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Every Growing Business Eventually Needs Better Systems.</h3>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#contact" class="btn-primary px-8 py-4 rounded-full text-base font-semibold text-white inline-flex items-center justify-center gap-2">
+                            <i data-lucide="message-square" class="w-5 h-5"></i>
+                            Discuss Your Current Challenges
+                        </a>
+                        <a href="#contact" class="btn-outline px-8 py-4 rounded-full text-base font-semibold text-amber-400 inline-flex items-center justify-center gap-2">
+                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                            Schedule Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ISLA-GRC Framework Section -->
+    <section id="framework" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-fade">
+                <div class="text-center mb-16">
+                    <p class="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-4">Framework</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Understanding <span class="gradient-text">ISLA-GRC</span>
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        A practical framework designed to connect internal systems, legal awareness, governance, and operational accountability.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 md:p-12 mb-12 glow-amber">
+                    <div class="text-center mb-10">
+                        <h3 class="text-2xl font-semibold text-white mb-4">More Than Compliance</h3>
+                        <p class="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                            Many companies treat governance and compliance as separate administrative obligations. In reality, operational stability depends on how well systems, people, documentation, accountability, and decision-making processes work together.
+                        </p>
+                        <p class="text-lg text-amber-400 font-semibold mt-4">
+                            ISLA-GRC was developed to approach those areas as one connected operational ecosystem.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="glass-card rounded-2xl p-8 hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="settings" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Internal System Alignment</h3>
+                                <p class="text-gray-400 leading-relaxed">Ensuring internal processes, structures, and workflows support operational consistency and reduce dependency on individuals.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="book-open" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Legal Awareness</h3>
+                                <p class="text-gray-400 leading-relaxed">Strengthening awareness of legal responsibilities before disputes or violations occur, not after.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="sitemap" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Governance Structure</h3>
+                                <p class="text-gray-400 leading-relaxed">Improving accountability, decision-making clarity, and organizational discipline at every level.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 hover-lift">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="radar" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-3">Risk & Compliance Perspective</h3>
+                                <p class="text-gray-400 leading-relaxed">Helping organizations identify operational vulnerabilities before they become major problems.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 md:p-12 text-center">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Why This Matters</h3>
+                    <p class="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed mb-6">
+                        Weak governance often remains invisible during stable business conditions. However, growth, employee disputes, audits, leadership transitions, or operational pressure frequently expose the weaknesses that were ignored for years.
+                    </p>
+                    <p class="text-xl text-amber-400 font-semibold">
+                        Sustainable businesses are built on systems that continue functioning even when pressure increases.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="py-24 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-fade">
+                <div class="text-center mb-16">
+                    <p class="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-4">Insights</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Insights & <span class="gradient-text">Perspectives</span>
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        Practical thoughts on HR, legal risk, governance, compliance, and operational realities inside growing businesses.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <article class="glass-card rounded-2xl p-6 hover-lift cursor-pointer group">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors">
+                            <i data-lucide="bomb" class="w-5 h-5 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors">Your Company May Already Be Carrying a Legal Time Bomb.</h3>
+                        <p class="text-gray-400 text-sm">Understanding hidden legal risks that accumulate quietly in growing organizations.</p>
+                        <div class="mt-4 flex items-center text-amber-500 text-sm font-medium">
+                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </article>
+
+                    <article class="glass-card rounded-2xl p-6 hover-lift cursor-pointer group">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors">
+                            <i data-lucide="file-x-2" class="w-5 h-5 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors">Why SOPs Often Fail in Real Operations.</h3>
+                        <p class="text-gray-400 text-sm">The gap between documented procedures and actual workplace implementation.</p>
+                        <div class="mt-4 flex items-center text-amber-500 text-sm font-medium">
+                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </article>
+
+                    <article class="glass-card rounded-2xl p-6 hover-lift cursor-pointer group">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors">Growth Without Governance Creates Hidden Risks.</h3>
+                        <p class="text-gray-400 text-sm">Why rapid expansion often exposes governance weaknesses that were always present.</p>
+                        <div class="mt-4 flex items-center text-amber-500 text-sm font-medium">
+                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </article>
+
+                    <article class="glass-card rounded-2xl p-6 hover-lift cursor-pointer group">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors">
+                            <i data-lucide="file-minus" class="w-5 h-5 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors">The Real Cost of Weak HR Documentation.</h3>
+                        <p class="text-gray-400 text-sm">How poor record-keeping transforms manageable situations into legal liabilities.</p>
+                        <div class="mt-4 flex items-center text-amber-500 text-sm font-medium">
+                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </article>
+
+                    <article class="glass-card rounded-2xl p-6 hover-lift cursor-pointer group">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors">
+                            <i data-lucide="search" class="w-5 h-5 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors">Most Compliance Problems Start Long Before Audits.</h3>
+                        <p class="text-gray-400 text-sm">Recognizing the early warning signs of compliance deterioration.</p>
+                        <div class="mt-4 flex items-center text-amber-500 text-sm font-medium">
+                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </article>
+
+                    <article class="glass-card rounded-2xl p-6 hover-lift cursor-pointer group">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors">
+                            <i data-lucide="balance-scale" class="w-5 h-5 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors">Work-Life Balance vs Operational Reality.</h3>
+                        <p class="text-gray-400 text-sm">Finding the practical middle ground between employee wellbeing and business demands.</p>
+                        <div class="mt-4 flex items-center text-amber-500 text-sm font-medium">
+                            Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </article>
+
+                    <article class="glass-card rounded-2xl p-6 hover-lift cursor-pointer group md:col-span-2 lg:col-span-3">
+                        <div class="flex items-start gap-6">
+                            <div class="w-14 h-14 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
+                                <i data-lucide="shield" class="w-7 h-7 text-amber-500"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-amber-400 transition-colors">Many Businesses Do Not Need More Rules. They Need Better Accountability.</h3>
+                                <p class="text-gray-400">Why adding more policies often fails, and how building accountability structures creates real change.</p>
+                                <div class="mt-4 flex items-center text-amber-500 text-sm font-medium">
+                                    Read More <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="mt-12 text-center glass-card rounded-2xl p-8 max-w-3xl mx-auto">
+                    <p class="text-lg text-gray-400 leading-relaxed">
+                        The purpose of these insights is not theoretical discussion. They are intended to help organizations recognize <span class="text-amber-400 font-semibold">practical operational risks</span> that are often ignored until problems become difficult to control.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-fade">
+                <div class="text-center mb-16">
+                    <p class="text-amber-500 font-semibold tracking-wide uppercase text-sm mb-4">Contact</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                        Let's Discuss Your <span class="gradient-text">Business Challenges.</span>
+                    </h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-400 leading-relaxed">
+                        Every organization has operational blind spots. The earlier they are identified, the easier they are to manage.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <div class="space-y-8">
+                        <div class="glass-card rounded-2xl p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-6">Get in Touch</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="mail" class="w-6 h-6 text-amber-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400 mb-1">Email</p>
+                                        <p class="text-white font-medium">info.forisaimpact@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="phone" class="w-6 h-6 text-amber-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400 mb-1">Phone</p>
+                                        <p class="text-white font-medium">+62 851-1728--3177</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="map-pin" class="w-6 h-6 text-amber-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400 mb-1">Location</p>
+                                        <p class="text-white font-medium">Surakarta, Indonesia</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center flex-shrink-0">
+                                        <i data-lucide="linkedin" class="w-6 h-6 text-amber-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-400 mb-1">LinkedIn</p>
+                                        <p class="text-white font-medium">Yanto Goutama, CHCM, CPLC</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-8">
+                            <p class="text-lg text-gray-300 leading-relaxed italic">
+                                "Strong businesses are not only measured by growth. They are measured by how well they survive complexity, pressure, and operational risk."
+                            </p>
+                            <p class="text-amber-400 font-semibold mt-4">That requires systems — not assumptions.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8">
+                        <h3 class="text-2xl font-semibold text-white mb-6">Schedule Discussion</h3>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="Your full name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Company Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="Your company name">
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                                    <input type="email" required class="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="your@email.com">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-400 mb-2">Phone Number</label>
+                                    <input type="tel" class="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors" placeholder="+62 xxx-xxxx-xxxx">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Main Business Challenge</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-colors resize-none" placeholder="Describe your main HR, Legal, or Governance challenges..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full btn-primary py-4 rounded-xl text-base font-semibold text-white inline-flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                Schedule Discussion
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <a href="#home" class="text-2xl font-bold tracking-tight inline-block mb-4">
+                        <span class="text-amber-500">ISLA</span><span class="text-white">-GRC</span>
+                    </a>
+                    <p class="text-gray-400 max-w-md leading-relaxed">
+                        Helping businesses strengthen HR, Legal, Governance, Risk, and Compliance systems through a practical ISLA-GRC approach designed for real operational challenges.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-amber-400 transition-colors">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-amber-400 transition-colors">Services</a></li>
+                        <li><a href="#framework" class="text-gray-400 hover:text-amber-400 transition-colors">Framework</a></li>
+                        <li><a href="#insights" class="text-gray-400 hover:text-amber-400 transition-colors">Insights</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-amber-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-amber-400 transition-colors">HR Consulting</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-amber-400 transition-colors">Legal & Compliance</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-amber-400 transition-colors">GRC Advisory</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-amber-400 transition-colors">Corporate Training</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Yanto Goutama. All rights reserved.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-amber-400 hover:bg-gray-700 transition-all">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-amber-400 hover:bg-gray-700 transition-all">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-amber-500 text-white px-6 py-4 rounded-xl shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5"></i>
+        <span id="toastMessage">Message sent successfully!</span>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                navbar.classList.add('bg-gray-900/95', 'backdrop-blur-lg', 'shadow-lg');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-gray-900/95', 'backdrop-blur-lg', 'shadow-lg');
+                navbar.classList.add('bg-transparent');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        function showToast(message) {
+            toastMessage.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalContent = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Sending...';
+            lucide.createIcons();
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                showToast('Thank you! We will contact you shortly to schedule a discussion.');
+                contactForm.reset();
+                submitBtn.innerHTML = originalContent;
+                lucide.createIcons();
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Article card click handler
+        document.querySelectorAll('article').forEach(article => {
+            article.addEventListener('click', () => {
+                showToast('Full article coming soon. Stay tuned!');
+            });
+        });
+    </script>
+</body>
+  </html>
